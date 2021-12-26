@@ -58,7 +58,7 @@ namespace NzbDrone.Core.Datastore.Migration
                 conn.Execute(sql, transaction: tran);
 
                 //Correct any Lists that reference profiles that are null
-                sql = $"UPDATE \"NetImport\" SET \"ProfileId\" = {mostCommonProfileId} WHERE \"Id\" IN(SELECT \"NetImport\".\"Id\" FROM \"NetImport\" LEFT OUTER JOIN \"Profiles\" ON \"NetImport\".\"ProfileId\" = \"Profiles\".\"Id\" WHERE \"Profiles.\"Id\" IS NULL)";
+                sql = $"UPDATE \"NetImport\" SET \"ProfileId\" = {mostCommonProfileId} WHERE \"Id\" IN(SELECT \"NetImport\".\"Id\" FROM \"NetImport\" LEFT OUTER JOIN \"Profiles\" ON \"NetImport\".\"ProfileId\" = \"Profiles\".\"Id\" WHERE \"Profiles\".\"Id\" IS NULL)";
                 conn.Execute(sql, transaction: tran);
             }
         }
