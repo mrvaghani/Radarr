@@ -75,7 +75,7 @@ namespace NzbDrone.Core.Datastore.Migration
                         using (var updateCmd = conn.CreateCommand())
                         {
                             updateCmd.Transaction = tran;
-                            updateCmd.CommandText = @"INSERT INTO DownloadHistory (EventType, MovieId, DownloadId, SourceTitle, Date, Protocol, Data) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                            updateCmd.CommandText = @"INSERT INTO ""DownloadHistory"" (""EventType"", ""MovieId"", ""DownloadId"", ""SourceTitle"", ""Date"", ""Protocol"", ""Data"") VALUES (?, ?, ?, ?, ?, ?, ?)";
                             updateCmd.AddParameter(downloadHistoryEventType);
                             updateCmd.AddParameter(movieId);
                             updateCmd.AddParameter(downloadId);

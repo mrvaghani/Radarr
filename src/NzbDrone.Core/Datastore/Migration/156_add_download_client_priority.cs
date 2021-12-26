@@ -25,7 +25,7 @@ namespace NzbDrone.Core.Datastore.Migration
             using (var cmd = conn.CreateCommand())
             {
                 cmd.Transaction = tran;
-                cmd.CommandText = "SELECT Id, Implementation FROM DownloadClients WHERE Enable = 1";
+                cmd.CommandText = "SELECT \"Id\", \"Implementation\" FROM \"DownloadClients\" WHERE \"Enable\" = true";
 
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -41,7 +41,7 @@ namespace NzbDrone.Core.Datastore.Migration
                         using (var updateCmd = conn.CreateCommand())
                         {
                             updateCmd.Transaction = tran;
-                            updateCmd.CommandText = "UPDATE DownloadClients SET Priority = ? WHERE Id = ?";
+                            updateCmd.CommandText = "UPDATE \"DownloadClients\" SET \"Priority\" = ? WHERE \"Id\" = ?";
                             updateCmd.AddParameter(isUsenet ? nextUsenet++ : nextTorrent++);
                             updateCmd.AddParameter(id);
 
