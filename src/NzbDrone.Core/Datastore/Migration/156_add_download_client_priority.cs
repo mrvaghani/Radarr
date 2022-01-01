@@ -25,7 +25,7 @@ namespace NzbDrone.Core.Datastore.Migration
             using (var cmd = conn.CreateCommand())
             {
                 cmd.Transaction = tran;
-                cmd.CommandText = "SELECT \"Id\", \"Implementation\" FROM \"DownloadClients\" WHERE \"Enable\" = true";
+                cmd.CommandText = "SELECT \"Id\", \"Implementation\" FROM \"DownloadClients\" WHERE \"Enable\" = TRUE;";
 
                 using (var reader = cmd.ExecuteReader())
                 {
